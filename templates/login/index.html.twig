@@ -31,7 +31,9 @@
         <div>
             <label for="password" class="form-label mt-4">Mot de passe</label>
             <input type="password" class="form-control" id="password" name="_password" placeholder="*********" autocomplete="off">
-            
+            <a href={{path('app_forgot_password_request')}}>
+                <p>Mot de passe oublié?</p>
+            </a>
         </div>
         <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
         
