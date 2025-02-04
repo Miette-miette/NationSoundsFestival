@@ -1,5 +1,432 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Caprasimo&display=swap');
 
-body {
-    background-color: lightgray;
+/*ANIMATIONS*/
+
+@keyframes logoShake {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 50%;
+	}
+
+	10% {
+		transform: rotate(8deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-10deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(10deg);
+	}
+
+	80% {
+		transform: rotate(-8deg);
+	}
+
+	90% {
+		transform: rotate(8deg);
+	}
+}
+
+/*BASE*/
+
+body{
+    background: #FFE3B0 !important;
+    
+}
+
+main{
+    margin: 1em auto;
+    max-width: 1000px !important;
+    width: 95%;
+}
+
+h1{
+    font-family: "Caprasimo", serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    color: #3f292e;
+    font-size: 2.5rem;
+}
+
+h2{
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: #3f292e;
+}
+
+h3{
+    font-family: "Afacad", sans-serif;
+    font-size: 1.5rem;
+    font-optical-sizing: auto;
+    color: #3f292e;
+}
+
+p, label{
+    font-family: "Afacad", sans-serif;
+    font-size: 18px;
+    font-optical-sizing: auto;
+    color: #3f292e;
+    margin-bottom: 2px;
+}
+
+a{
+    color: beige;
+    text-decoration: none;
+}
+
+a:hover{
+    color:#492E34;
+}
+
+.title{
+    font-family: "Caprasimo", serif;
+}
+
+button, .button-style {
+    background-color: #E47161;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 8px;
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+    color: beige;
+    border:#492E34 2px solid ;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(2px 4px 4px #492E34);
+}
+
+button:hover, .button-style:hover{
+    background-color:#8f505e;
+}
+
+.active{
+    background-color:#8f505e;
+}
+
+.navbar{
+    background-color:#E47161;
+}
+
+tr{
+    margin-bottom:20px;
+}
+
+tbody{
+    background-color: beige;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 8px;
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+    color:#492E34;
+    border:#492E34 2px solid ;
+    justify-content: center;
+    filter: drop-shadow(2px 4px 4px #492E34);
+    vertical-align: bottom;
+    
+}
+
+.table thead th {
+    border-bottom: none;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: none;
+}
+
+.table-primary, .table-primary>th, .table-primary>td {
+    background-color: transparent; 
+}
+
+td{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.table-hover .table-primary:hover {
+    background-color: transparent;
+}
+.table-hover .table-primary:hover>td, .table-hover .table-primary:hover>th {
+    background-color: transparent;
+}
+
+.wrapper {
+    background-color: beige;
+    padding: 2%;
+    margin: 1% 20%;
+    border-radius: 8px;
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+    color:#492E34;
+    border:#492E34 2px solid ;
+    justify-content: center;
+    filter: drop-shadow(2px 4px 4px #492E34);
+    vertical-align: bottom;
+}
+
+.wrapper>div{
+    width: 100%;
+}
+
+form>div,form>div>div{
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    margin-top: 30px;
+}
+
+.vich-image>a>img{
+    width: 200px;
+}
+
+.decoTitreShake {
+    animation: logoShake 20s ease-out 0s infinite normal forwards;
+    width:100px;
+    padding:20px
+}
+
+/*FOOTER*/
+
+footer {
+    background-image: url(../../public/media/background/footerBackground.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    padding: 10% 0 3% 0;
+    color: beige;
+    filter: drop-shadow(2px 4px 4px #492E34);
+}
+
+#topFooter{
+    width: 100%;
+    margin-right: 100px;
+}
+
+#logoFooter {
+    margin: 2% 8% 2% 0%;
+}
+
+#logoFooter>img{
+    margin: 10%;
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(2px 2px 2px rgb(63, 46, 23));
+}
+
+#logoFooter>div>p:first-of-type {
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    color: beige;
+    font-size: 30px;
+}
+
+footer>div>div>p{
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    color: beige;
+    font-size: 25px;
+}
+
+#footerFleur>img{
+    width: 120px;
+}
+
+.footerRS{
+    width: 50px;
+    margin: 10px;
+}
+
+
+#informationFooter{
+    width: 600px;
+}
+
+#informationFooter>a{
+    margin: 0 5%;
+}
+
+
+/*HEADER*/
+
+.navbar-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2%;
+    position: fixed;
+    width:100vw;
+    z-index: 7;
+}
+
+#logo{
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(2px 2px 2px #492E34);
+}
+
+#navbar-burger, #navbar-login{
+    position: relative;
+    cursor: pointer;
+    filter: drop-shadow(2px 4px 4px #492E34);
+}
+
+/*MENU*/
+
+@keyframes menuSlide {
+	0% {
+		transform: translateY(-1200px);
+	}
+
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes loginSlide {
+	0% {
+		transform: translateX(400px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.navbar-links{
+    display: none;
+    justify-content: center;
+    position: fixed;
+    background-color: #492E34;
+    color: beige;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    animation: menuSlide 2s ease 0s 1 normal;
+    z-index: 6;    
+}
+
+.navbar-login{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    background-color:#c4cb99 ;
+    filter: drop-shadow(2px 4px 4px #492E34);
+    color: beige;
+    width: 20%;
+    height: 100%;
+    right: 0;
+    padding: 120px 2%;
+    animation: loginSlide 1s ease 0s 1 normal forwards;
+    z-index: 6; 
+}
+
+.navbar-login>ul{
+    width: 100%;
+}
+
+.navbar-login>ul>li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.loginbtn {
+    width: 100%;
+    padding: 10% 80%;
+    margin: 10%;
+}
+
+.show-nav.navbar-links{
+    display: flex;
+}
+
+.show-login.navbar-login {
+    display: flex;
+}
+
+.hide.navbar-links{
+    animation: menuSlide 2s ease 0s 1 reverse;
+}
+
+.navbar-links>ul, .navbar-login>ul{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+    list-style: none;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.links>p{  
+    font-family: "Afacad", sans-serif;
+    color: beige;
+    font-size: 40px;
+    
+}
+
+.links>img {
+    width: 50px;
+    height: fit-content;
+}
+
+/* MENU VISUEL */
+
+#visuelMenu{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mascotteMenu {
+    
+    width: 10%;
+    position: absolute;
+    margin: 0 0 500px 200px;
+    overflow: hidden;
+    z-index: 2;
+    animation: logoShake 15s ease-out 0s infinite normal forwards;
+}
+
+#bgMascotteMenu {
+    width: 70%;
+    height: max-content;
+    position: relative;
+    z-index: 1;
+}
+
+.bi-box-arrow-up-right{
+    width: 30px;
+    height: 30px;
+    margin: 0 0 10px 20px;
 }
