@@ -37,7 +37,7 @@ final class SecurityController extends AbstractController
         $user->setRoles(['ROLE_USER']);
 
         $form = $this->createForm(RegistrationType::class, $user);
-        $errors = $form->getErrors();
+        //$errors = $form->getErrors();
         
 
         $form->handleRequest($request);
