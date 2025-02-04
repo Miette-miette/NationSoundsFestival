@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class AtelierController extends AbstractController
+class WorkshopController extends AbstractController
 {
     #[Route('/api/ateliers', name: 'api_workshop', methods: ['GET'])]
     public function api(SerializerInterface $serializer, EntityManagerInterface $entityManager)

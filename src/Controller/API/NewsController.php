@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class ArticleController extends AbstractController
+class NewsController extends AbstractController
 {
     #[Route('/api/articles', name: 'api_news', methods: ['GET'])]
     public function apiAlerte(SerializerInterface $serializer, EntityManagerInterface $entityManager)

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class CarteController extends AbstractController
+class MapController extends AbstractController
 {
     #[Route('/api/carte', name: 'api_map', methods: ['GET'])]
     public function api(SerializerInterface $serializer, EntityManagerInterface $entityManager)

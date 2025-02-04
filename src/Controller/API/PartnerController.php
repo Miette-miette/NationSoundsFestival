@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class PartenaireController extends AbstractController
+class PartnerController extends AbstractController
 {
     #[Route('/api/partenaires', name: 'api_partner', methods: ['GET'])]
     public function getPartenairesAPI(SerializerInterface $serializer, EntityManagerInterface $entityManager): Response
