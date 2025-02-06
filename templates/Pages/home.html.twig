@@ -1,9 +1,124 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+
+{% block title %}Accueil - Nation Sounds Festival{% endblock %}
 
 {% block body %}
 
-    <div {{ react_component('Welcome')}}></div>
+    <section id="welcome">
+        <div id="welcomeAnim">
+            <img src="../media/background/tartelette_accueil.png" id="tartelette" loading="lazy"/>
+            <img src="../media/logoNS/ns_2024.png" id="ns_2024" loading="lazy"/>
+            <img src="../media/logoNS/ns_mascotte.png" id="mascotte"/>
+            <img src="../media/doodle/forme-organique1.png" id="forme1"/>
+            <img src="../media/doodle/megaphone.png" id="mega"/>
+            <img src="../media/doodle/fleur1.png" id="fleur1"/>
+            <img src="../media/doodle/fleur3.png" id="fleur2"/>
+            <img src="../media/doodle/cassette.png" id="cassette"/>
+            <img src="../media/doodle/etoile.png" id="etoile"/>                   
+        </div>
+
+        <div class="button-style" id="btnlanding">
+            <a href="/">Découvrez le programme</a>
+        </div>
+        <img src="../media/doodle/happyfleur2.png" id="fleurbtn"/>
+    </section> 
+
+    <section id="affiche" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-row justify-content-center">
+            <img src="../../media/doodle/happyfleur1.png" class="decoTitre"/>
+            <h2 class="d-flex align-items-center justify-content-center">Les concerts</h2>
+            <img src="../../media/doodle/happyfleur1.png" class="decoTitre"/>
+        </div>
+
+        <p>Une édition haute en couleurs et en talents internationaux!</p>
+                
+        <div id="carouselArtiste" >
+            <div id="conteneurCarousel" class="d-flex flex-row" >
+                {% for concerts in concert %}
+                       
+                    <div class="carouselCard" >
+                        <div class="infoCard">
+                            <h3 class="title">{{concerts.name}}</h3>
+                            <p class="scene">{{concerts.location}}</p>
+                            <p class="date">{{concerts.beginDatetime|date('d-m')}}</p>
+                        </div>
+                    </div>
+                    
+                {% endfor %}
+            </div>                       
+        </div>
+    </section>
+
+    <section id='billeterie'>
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <img src="../../media/doodle/metal.png" class="decoTitreShake"/>
+                <h2>Obtenez votre pass dès maintenant!</h2>
+                <img src="../../media/doodle/metal.png" class="decoTitreShake"/>
+            </div>
+
+            <div >
+                <div id="passConteneur" class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                    <a href="https://www.ticketmaster.fr/fr" target="_blank" rel="noreferrer" class="pass3 d-flex flex-column" >
+                        <h3>PASS 3 jours</h3>
+                        <p>80 &euro;</p>
+                    </a>
+                    <a href="https://www.ticketmaster.fr/fr" target="_blank" rel="noreferrer" class="pass2 d-flex flex-column" >
+                        <h3>PASS 2 jours</h3>
+                        <p>50 &euro;</p>
+                    </a>
+                    <a href="https://www.ticketmaster.fr/fr" target="_blank" rel="noreferrer" class="pass1 d-flex flex-column" >
+                        <h3>Billet 1 jour</h3>
+                        <p>30 &euro;</p>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <section id="news">
+        <div class="d-flex flex-row justify-content-center align-items-center" >
+            <img src="../../media/doodle/happyfleur2.png" class="decoTitre"/>
+            <h2>Actualités du festival</h2>
+            <img src="../../media/doodle/happyfleur2.png" class="decoTitre"/>
+        </div>
+
+        <div id="articleConteneur" class="d-flex flex-row">
+            {% for news in new %}
+                <div class="articleCard d-flex flex-column" id="{{news.id}}">
+                    <div class="articleImg">
+                        <img src={{news.imageName}}/>
+                    </div>
+                    <div class="articleDescription">
+                        <h3 class="title">{{news.title}}</h3>
+                        <p class="chapeau">{{news.summary}}</p>
+                    </div>
+                </div> 
+            {% endfor %}
+        </div>
+
+    </section>
+
+    <section id="asso">
+       <div class="d-flex flex-row justify-content-center align-items-center" >
+            <img src="../../media/doodle/megaphone.png" class="decoTitreShake"/>
+            <h2>Un festival humanitaire</h2>
+            <img src="../../media/doodle/megaphone.png" class="decoTitreShake"/>
+        </div>
+
+
+        <div id="assoTxt" class="d-flex flex-column flex-lg-row align-items-center">
+            <img src="../../media/photo/pexels-rdne-6646917.jpg" width="40%"/>
+            <div>
+                <p><strong>National Sounds se veut être un festival inclusif et se distingue par son engagement humanitaire, visant à rassembler des personnes de diverses origines et à promouvoir 
+                la solidarité globale.</strong></p>
+                <p> En intégrant des initiatives telles que des collectes de fonds pour des causes sociales, des stands d'information 
+                sur des problématiques mondiales et des ateliers de sensibilisation, le festival ne se contente pas de célébrer la diversité musicale, 
+                mais il agit également comme une plateforme pour le changement social.</p>
+                <p>Grâce à des partenariats avec des organisations caritatives et à l'inclusion 
+                d'artistes de communautés marginalisées, ce type de festival incarne un esprit d'unité et de bienveillance, offrant une expérience enrichissante 
+                tant sur le plan culturel qu'humanitaire.</p>    
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

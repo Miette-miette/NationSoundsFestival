@@ -5,6 +5,7 @@ namespace App\Controller\Security;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,9 +14,20 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 final class SecurityController extends AbstractController
 {
-    #[Route('/connexion', name: 'app_login')]
-    public function index(AuthenticationUtils $authenticationUtils): Response
+    #[Route('/connexion', name: 'app_login', methods: ['GET', 'POST'])]
+    public function index(AuthenticationUtils $authenticationUtils, #[CurrentUser] ?User $user,Request $request): Response
     {
+        // if user is already logged in, don't display the login page again
+        // if admin => display the dashboard admin
+        if ($user) {
+            if ($user->getRoles() == 'ROLE_ADMIN'){
+                return $this->redirectToRoute('admin_index');
+            }
+            else{
+                return $this->redirectToRoute('app_dashboard_user', ['id' => $user->getId()]);
+            }   
+        }
+
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -25,7 +37,7 @@ final class SecurityController extends AbstractController
         ]);
     }
     
-    #[Route('/deconnexion', name: 'app_logout')]
+    #[Route('/deconnexion', name: 'app_security_logout')]
     public function logout(){
         return $this->redirect($this->generateUrl('http://localhost:3000/home'));
     }

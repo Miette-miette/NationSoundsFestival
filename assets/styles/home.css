@@ -211,3 +211,192 @@
     animation: logoShake 12s ease-out 0s infinite normal forwards;
 }
 
+/* SECTION LINE UP */
+
+#affiche{
+    width: 100%;
+    overflow: hidden;
+}
+
+#carouselArtiste{
+    padding: 20px 20% 20px 20%;
+    width: 100%; 
+}
+
+#conteneurCarousel{ 
+    overflow-x:scroll;
+    scroll-behavior: smooth; 
+}
+
+.carouselCard{
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    height: 320px;
+    justify-content: end;
+    background-color:#8f505e;
+    border-style: solid;
+    border-color: #492E34;
+    margin: 5px;
+    border-radius: 8px;
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));
+    cursor: pointer;
+    
+}
+
+.infoCard {
+    width: 300px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.6278886554621849) 49%, rgba(255,255,255,0) 100%);
+    padding: 20px;
+}
+
+.infoCard>h3,.infoCard>p{
+    color: beige;
+    margin: 0;
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.infoCard>h3 {
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    font-style: larger;
+    font-size: 34px;
+    display: flex;
+    justify-content: left;
+}
+
+/*ACCUEIL ARTICLE ACTU*/
+
+#news {
+    background-color: #E47161;
+    width: 100%;
+    padding: 20px 20%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    filter: drop-shadow(2px 4px 4px #492E34);
+    overflow: hidden;
+}
+
+#news>h2{
+    display: flex;
+    justify-content: center;
+}
+
+.articleCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    background-color:beige;
+    border-style: solid;
+    border-color: #492E34;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 8px;
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+    cursor: pointer;
+    filter: drop-shadow(2px 4px 4px #492E34);
+}
+
+.articleImg{  
+    height: 250px; 
+    display: flex;
+    justify-content: center;
+    
+}
+
+.articleImg>img{
+    width: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.articleDescription{
+    padding: 6%;
+}
+
+#articleConteneur{ 
+    overflow-x:scroll;
+    scroll-behavior: smooth; 
+}
+
+
+/* CHARITY */
+
+#asso{
+    width: 100%;
+    padding: 20px 20%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#assoTxt>img{
+    border-radius: 100%;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-right: 5% ;
+}
+
+/*PASS*/
+
+#billeterie {
+    width: 100%;
+    padding: 2% 0 4%;
+    background-image: url(../../public/media/background/pexels-wendywei-1805895.png); 
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#billeterie>div>h2 , #billeterie>p {
+    color: beige;
+}
+
+.pass1, .pass2, .pass3 {
+    position: relative;
+    z-index: 3;
+    background-image: url(../../public/media/background/tartelette_accueil.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; 
+    justify-content: center;
+    align-items: center;
+    margin: 2% 2%;
+    filter: drop-shadow(2px 4px 4px #3f2128);
+}
+
+.pass3{
+    width: 350px;
+    height: 350px;
+}
+
+.pass2,.pass1{
+    width: 270px;
+    height: 270px;
+}
+
+.pass3>h3{
+    font-family: "Caprasimo", serif;
+    font-size: 30px;
+}
+.pass3>p{
+    font-size: 40px;
+    font-weight: bold;
+    color: #E47161;
+}
+
+.pass1>h3, .pass2>h3{
+    font-family: "Caprasimo", serif;
+    font-size: 24px;
+}
+
+.pass1>p, .pass2>p{
+    font-size: 30px;
+    color: #E47161;
+    font-weight: bold;
+}

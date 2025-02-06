@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Caprasimo&display=swap');
+@import "home.css";
+@import "social-media.css";
 
 /*ANIMATIONS*/
 
@@ -32,6 +34,15 @@
 	90% {
 		transform: rotate(8deg);
 	}
+}
+
+@keyframes logoRotation {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 
 /*BASE*/
@@ -207,6 +218,11 @@ form>div,form>div>div{
     padding:20px
 }
 
+.decoTitre{
+    animation: logoRotation 20s linear 0s infinite normal forwards;
+    width:100px;
+    padding:20px
+}
 /*FOOTER*/
 
 footer {
@@ -430,3 +446,4 @@ footer>div>div>p{
     height: 30px;
     margin: 0 0 10px 20px;
 }
+
