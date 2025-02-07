@@ -56,9 +56,9 @@ function footer(){
 
             <div id="bottomFooter">
                 <div id="informationFooter" className="d-flex flex-row justify-content-center align-items-center"> 
-                    <a href="./Pages/FAQ"> FAQ</a>
+                    <a href="/"> FAQ</a>
                     <p>|</p>
-                    <a href="https://127.0.0.1:8001/index.php/contact"> Contact</a>
+                    <a href="/contact"> Contact</a>
                     <p>|</p>
                     <a>Plan du site</a>
                     <p>|</p>

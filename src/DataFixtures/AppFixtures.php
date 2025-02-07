@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
                 ->setBeginDatetime($this->faker->dateTime())
                 ->setEndDatetime($this->faker->dateTime())
                 ->setContent($this->faker->text())
-                ->setImg($this->faker->imageUrl($width = 640, $height = 480))
+                //->setImg($this->faker->imageUrl($width = 640, $height = 480))
                 ->setLocation(null);
 
             $concerts[] = $concert;
@@ -76,8 +76,8 @@ class AppFixtures extends Fixture
             $new = new News();
             $new->setTitle($this->faker->name())
                 ->setSummary($this->faker->text())
-                ->setContent($this->faker->text())
-                ->setImg($this->faker->imageUrl($width = 640, $height = 480));
+                ->setContent($this->faker->text());
+                //->setImg($this->faker->imageUrl($width = 640, $height = 480));
                 
             $news[] = $new;
             $manager->persist($new);
@@ -89,8 +89,8 @@ class AppFixtures extends Fixture
             $partner = new Partner();
             $partner->setName($this->faker->title())
                 ->setType($this->faker->word())
-                ->setContent($this->faker->text())
-                ->setImg($this->faker->imageUrl($width = 640, $height = 480));
+                ->setContent($this->faker->text());
+                //->setImg($this->faker->imageUrl($width = 640, $height = 480));
 
             $partners[] = $partner;
             $manager->persist($partner);
@@ -104,7 +104,7 @@ class AppFixtures extends Fixture
                 ->setBeginDatetime($this->faker->dateTime())
                 ->setEndDatetime($this->faker->dateTime())
                 ->setContent($this->faker->text())
-                ->setImg($this->faker->imageUrl($width = 640, $height = 480))
+                //->setImg($this->faker->imageUrl($width = 640, $height = 480))
                 ->setLocation(null);
 
             $performances[] = $performance;
@@ -119,7 +119,7 @@ class AppFixtures extends Fixture
                 ->setBeginDatetime($this->faker->dateTime())
                 ->setEndDatetime($this->faker->dateTime())
                 ->setContent($this->faker->text())
-                ->setImg($this->faker->imageUrl($width = 640, $height = 480))
+                //->setImageFile($this->faker->imageUrl($width = 640, $height = 480))
                 ->setLocation(null);
 
             $workshops[] = $workshop;
@@ -137,6 +137,17 @@ class AppFixtures extends Fixture
                 ->setUpdatedAt(new \DateTimeImmutable());
 
         $manager->persist($admin);
+
+        $editor = new User();
+        $editor->setFirstName('Editeur')
+                ->setLastName(null)
+                ->setEmail('editor@ns.com')
+                ->setRoles(['ROLE_USER','ROLE_EDITOR'])
+                ->setPlainPassword('password')
+                ->setCreatedAt(new \DateTimeImmutable())
+                ->setUpdatedAt(new \DateTimeImmutable());
+
+        $manager->persist($editor);
 
         $users = [];
         for ($i = 0; $i < 10; $i++) {
