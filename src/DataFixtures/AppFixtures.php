@@ -49,8 +49,8 @@ class AppFixtures extends Fixture
                 ->setBeginDatetime($this->faker->dateTime())
                 ->setEndDatetime($this->faker->dateTime())
                 ->setContent($this->faker->text())
-                //->setImg($this->faker->imageUrl($width = 640, $height = 480))
-                ->setLocation(null);
+                ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
+                //->setLocation(null);
 
             $concerts[] = $concert;
             $manager->persist($concert);
@@ -76,8 +76,8 @@ class AppFixtures extends Fixture
             $new = new News();
             $new->setTitle($this->faker->name())
                 ->setSummary($this->faker->text())
-                ->setContent($this->faker->text());
-                //->setImg($this->faker->imageUrl($width = 640, $height = 480));
+                ->setContent($this->faker->text())
+                ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
                 
             $news[] = $new;
             $manager->persist($new);
@@ -89,8 +89,8 @@ class AppFixtures extends Fixture
             $partner = new Partner();
             $partner->setName($this->faker->title())
                 ->setType($this->faker->word())
-                ->setContent($this->faker->text());
-                //->setImg($this->faker->imageUrl($width = 640, $height = 480));
+                ->setContent($this->faker->text())
+                ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
 
             $partners[] = $partner;
             $manager->persist($partner);
@@ -104,8 +104,8 @@ class AppFixtures extends Fixture
                 ->setBeginDatetime($this->faker->dateTime())
                 ->setEndDatetime($this->faker->dateTime())
                 ->setContent($this->faker->text())
-                //->setImg($this->faker->imageUrl($width = 640, $height = 480))
-                ->setLocation(null);
+                ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
+                //->setLocation(null);
 
             $performances[] = $performance;
             $manager->persist($performance);
@@ -119,8 +119,8 @@ class AppFixtures extends Fixture
                 ->setBeginDatetime($this->faker->dateTime())
                 ->setEndDatetime($this->faker->dateTime())
                 ->setContent($this->faker->text())
-                //->setImageFile($this->faker->imageUrl($width = 640, $height = 480))
-                ->setLocation(null);
+                ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
+                //->setLocation(null);
 
             $workshops[] = $workshop;
             $manager->persist($workshop);
@@ -131,7 +131,7 @@ class AppFixtures extends Fixture
         $admin->setFirstName('Administrateur de Nation-Sounds')
                 ->setLastName(null)
                 ->setEmail('admin@ns.com')
-                ->setRoles(['ROLE_USER','ROLE_ADMIN'])
+                ->setRoles(['ROLE_USER','ROLE_EDITOR','ROLE_ADMIN'])
                 ->setPlainPassword('password')
                 ->setCreatedAt(new \DateTimeImmutable())
                 ->setUpdatedAt(new \DateTimeImmutable());

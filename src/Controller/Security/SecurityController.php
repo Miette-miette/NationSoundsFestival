@@ -9,11 +9,20 @@ use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 final class SecurityController extends AbstractController
 {
+
+    private UserPasswordHasherInterface $hasher;
+
+    public function __construct(UserPasswordHasherInterface $hasher)
+    {
+        $this->hasher = $hasher;
+    }
+
     #[Route('/connexion', name: 'app_login', methods: ['GET', 'POST'])]
     public function index(AuthenticationUtils $authenticationUtils, #[CurrentUser] ?User $user,Request $request): Response
     {
@@ -53,9 +62,15 @@ final class SecurityController extends AbstractController
         
 
         $form->handleRequest($request);
+        
         if ($form->isSubmitted()&& $form->isValid())
         {
             $userData = $form->getData();
+            $hashPassword = $this->hasher->hashPassword(
+                $user,
+                'password'
+            );
+            $user->setPassword($hashPassword);  
             $entityManager->persist($userData);
             $entityManager->flush();
 
@@ -66,6 +81,7 @@ final class SecurityController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
+       
 
         return $this->render('security/registration.html.twig', [
             'form' => $form->createView()
