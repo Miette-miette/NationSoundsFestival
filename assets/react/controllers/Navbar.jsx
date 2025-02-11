@@ -4,11 +4,15 @@ import Cookies from 'js-cookie';
 
 function Navbar() {
 
+  //Menu
+
   const [showMenu, setShowMenu] = useState(false)
 
   const handleShowMenu = () =>{
     setShowMenu(!showMenu)
   };
+
+  //Login
 
   const [showLogin, setShowLogin] = useState(false)
   
@@ -16,14 +20,38 @@ function Navbar() {
     setShowLogin(!showLogin)
   };
 
-  //cookie session à recup
-
   const [cookieValue, setCookieValue] = useState(Cookies.get("user") || "");
   
-  console.log(Cookies.get("user"));
+  console.log(cookieValue);
 
+  const UserAuth = () => {
+
+    if (cookieValue === false){
+
+    return(
+      <div>
+          <a href="/connexion">
+            <button className="loginbtn">Se connecter</button>
+          </a>
+          <a href="/inscription">
+              <button className="loginbtn">S'inscrire</button>
+          </a>
+      </div>
+      )    
+    }
   
-
+    if (cookieValue !== undefined){
+ 
+    return(
+      <div>
+        <a href="/connexion">
+          <button className="loginbtn">Acceder à mon espace</button>
+        </a>
+      </div>
+      )    
+    }
+  }
+  
   return (
     <div id="navbar">
 
@@ -51,18 +79,7 @@ function Navbar() {
         <h2>Mon espace Nation-Sounds</h2>
 
         <p>Cookie = {cookieValue}</p>
-        <ul>
-          <li>
-            <a href="/connexion">
-              <button className="loginbtn">Se connecter</button>
-            </a>
-          </li>
-          <li>
-            <a href="/inscription">
-                <button className="loginbtn">S'inscrire</button>
-            </a>
-          </li>
-        </ul> 
+        <div>{UserAuth()}</div>
       </div>
 
       <nav className={`navbar-links ${showMenu ? "show-nav" : "hide"}`}>
