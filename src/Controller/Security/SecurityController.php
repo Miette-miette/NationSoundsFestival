@@ -7,6 +7,7 @@ use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -37,6 +38,16 @@ final class SecurityController extends AbstractController
             }   
         }
 
+        $cookie = Cookie::create('user')
+        ->withValue('log')
+        ->withExpires(time()+3000)
+        ->withHttpOnly(false);
+
+        $response = new Response();
+        $response->headers->setCookie($cookie);
+
+        $response->send();
+
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -48,7 +59,7 @@ final class SecurityController extends AbstractController
     
     #[Route('/deconnexion', name: 'app_security_logout')]
     public function logout(){
-        return $this->redirect($this->generateUrl('http://localhost:3000/home'));
+        return $this->redirect($this->generateUrl('http://localhost:8000/'));
     }
 
     #[Route('/inscription', name: 'app_registration', methods: ['GET', 'POST'])]

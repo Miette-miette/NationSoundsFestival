@@ -1,5 +1,6 @@
 import '../../styles/navbar.css';
 import React, { Component, useState } from 'react';
+import Cookies from 'js-cookie';
 
 function Navbar() {
 
@@ -14,6 +15,14 @@ function Navbar() {
   const handleShowLogin = () =>{
     setShowLogin(!showLogin)
   };
+
+  //cookie session à recup
+
+  const [cookieValue, setCookieValue] = useState(Cookies.get("user") || "");
+  
+  console.log(Cookies.get("user"));
+
+  
 
   return (
     <div id="navbar">
@@ -41,6 +50,7 @@ function Navbar() {
       <div className={`navbar-login ${showLogin ? "show-login" : "hide"}`}>
         <h2>Mon espace Nation-Sounds</h2>
 
+        <p>Cookie = {cookieValue}</p>
         <ul>
           <li>
             <a href="/connexion">
