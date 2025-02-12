@@ -1,5 +1,5 @@
 import '../../styles/navbar.css';
-import React, { Component, useState } from 'react';
+import React , { Component, useState } from 'react';
 import Cookies from 'js-cookie';
 
 function Navbar() {

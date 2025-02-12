@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07c2e31ad540bbbdd0006b8f472761b3",
+    "content-hash": "e283b128140eefea3cd139875ee1dd64",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -7276,7 +7276,7 @@
         },
         {
             "name": "symfony/ux-react",
-            "version": "v2.22.1",
+            "version": "v2.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-react.git",
@@ -7332,7 +7332,7 @@
                 "symfony-ux"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-react/tree/v2.22.1"
+                "source": "https://github.com/symfony/ux-react/tree/v2.23.0"
             },
             "funding": [
                 {
