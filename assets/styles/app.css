@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Caprasimo&display=swap');
 @import 'home.css';
-@import "social-media.css";
-@import "alert.css";
+@import 'concert.css';
+@import 'alert.css';
+@import 'partners.css';
+@import 'social-media.css';
 
 /*ANIMATIONS*/
 
@@ -59,6 +61,10 @@ main{
     width: 95%;
 }
 
+.pages{
+    padding-top: 110px ;
+}
+
 h1{
     font-family: "Caprasimo", serif;
     font-weight: 500;
@@ -92,7 +98,7 @@ p, label{
 }
 
 a{
-    color: beige;
+    color: beige!important;
     text-decoration: none;
 }
 
@@ -108,7 +114,7 @@ button, .button-style {
     background-color: #E47161;
     padding: 2%;
     margin: 1%;
-    border-radius: 8px;
+    border-radius: 8px!important;
     font-family: "Afacad", sans-serif;
     font-optical-sizing: auto;
     color: beige;
@@ -285,28 +291,29 @@ footer>div>div>p{
     margin: 0 5%;
 }
 
+/* FAQ */
 
-/*HEADER*/
-
-.navbar-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 2%;
-    position: fixed;
-    width:100vw;
-    z-index: 7;
+.faqTopic{
+    padding: 2% 0;
 }
 
-#logo{
-    width: 70px;
-    height: 70px;
-    filter: drop-shadow(2px 2px 2px #492E34);
-}
-
-#navbar-burger, #navbar-login{
-    position: relative;
+.conteneurQuestion {
+    background-color: beige;
+    padding: 10px 25px 10px 25px;
+    border-style: solid;
+    border-color: #492E34;
+    border-radius: 15px;
+    margin: 1% 0;
     cursor: pointer;
-    filter: drop-shadow(2px 4px 4px #492E34);
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));
+}
+
+.inputForm {
+    background-color: beige;
+    padding: 10px 25px 10px 25px;
+    border-style: solid;
+    border-color: #492E34;
+    border-radius: 15px;
+    margin: 1%;
 }
 

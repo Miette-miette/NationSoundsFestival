@@ -5,6 +5,49 @@
 {% block body %}
 
 {{ alert() }}
+
+    <main class="pages">
+        <div id="partenaireHeader" class="d-flex flex-row justify-content-center align-items-center">
+            <img src="../../media/doodle/metal.png" class="decoTitreShake"/>
+            <h1>Nos partenaires</h1>
+            <img src="../../media/doodle/metal.png" class="decoTitreShake"/>
+        </div>
+
+        <div class="conteneurPartenaire d-flex flex-column">
+            <h2>Institutions</h2>
+            <div id="institutionConteneur" class="d-flex flex-column">
+                {% for partenaire in partenaires %}
+                    {% if partenaire.type is same as("Institution") %}
+                        <div class="imgPartenaireConteneur  d-flex flex-column flex-lg-row justify-content-center justify-content-md-between align-items-center ">
+                            <img src={{partenaire.imageName}}/>
+                            <div class="articleDescription d-flex flex-column justify-content-center">
+                                <h2 class="title">{{partenaire.name}}</h2>
+                                <p class="description">{{partenaire.content}}</p>
+                            </div>
+                        </div>                       
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+
+            <div class="conteneurPartenaire d-flex flex-column">
+                <h2>Entreprises</h2>
+                <div id="entrepriseConteneur" class="d-flex flex-column">
+                {% for partenaire in partenaires %}
+                    {% if partenaire.type is same as("Entreprise") %}
+                   
+                        <div class="imgPartenaireConteneur  d-flex flex-column flex-lg-row justify-content-center justify-content-md-between align-items-center ">
+                            <img src={{partenaire.imageName}}/>
+                            <div class="articleDescription d-flex flex-column justify-content-center">
+                                <h2 class="title">{{partenaire.name}}</h2>
+                                <p class="description">{{partenaire.content}}</p>
+                            </div>
+                        </div>   
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </main>
     
 
 {% endblock %}

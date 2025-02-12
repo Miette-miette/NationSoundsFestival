@@ -93,6 +93,12 @@
     margin: 10%;
 }
 
+.dashboardBtn{
+    width: 100%;
+    padding: 10% 20%;
+    margin: 10% 0;
+}
+
 .show-nav.navbar-links{
     display: flex;
 }

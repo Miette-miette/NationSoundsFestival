@@ -1,0 +1,91 @@
+#map {
+
+    min-height: 400px;
+    width: 60%;
+    position: relative;
+    z-index: 1;
+    border-style: solid;
+    border-color: #492E34;
+    margin: 1%;
+}
+
+#conteneurInformations{
+    width: 40%;
+    background-color: beige;
+    padding: 10px 15px 10px 15px;
+    border-style: solid;
+    border-color: #492E34;
+    border-radius: 10px;
+    margin: 1%;
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));
+}
+
+.leaflet-popup-content {
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #3f292e; 
+}
+
+.carteInfoImg{
+    display: flex;
+    justify-content: center;
+}
+
+.carteInfoImg>img {
+    width: 220px;
+    height: 220px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+    padding: 5%;
+}
+
+.carteConcertTxt>h2, .carteConcertTxt>p{
+    color: beige;
+}
+
+.bgRound {
+    position: absolute;
+    z-index: 1;
+    width: 230px;
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));
+    animation: logoRotation  35s linear 0s infinite normal forwards;   
+}
+
+.imgRound{
+    position: relative;
+    z-index: 2;
+    width: 210px;
+    height: 210px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+    padding: 8%;
+    animation: beats 0.6s ease-out 0s infinite normal forwards;
+}
+
+.carteTxt, .carteConcertTxt{
+    padding: 3%;
+}
+
+.conteneurImg{
+    height: 100%; 
+}
+
+#legend{
+    width: 100%;
+    background-color: beige;
+    padding: 20px;
+    border-style: solid;
+    border-color: #492E34;
+    border-radius: 10px;
+    margin: 1%;
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));
+}
+    
+
+.legendItem>img{
+    width: 40px;
+    margin: 2%;
+}

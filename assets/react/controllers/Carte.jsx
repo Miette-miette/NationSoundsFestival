@@ -1,12 +1,21 @@
-{% extends 'base.html.twig' %}
+/*import React, { useEffect, useState } from "react";
+import axios from "axios";
+//import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 
-{% block title %}Accueil - Nation Sounds Festival{% endblock %}
+const Carte = () =>{
+    const [carte, setCarte]= useState([])
+    //const [marker, setMarkers]= useState([])
 
-{% block body %}
+    useEffect(() => {
+        axios.get("https://127.0.0.1:8001/index.php/api/carte")
+        .then((res)=>setCarte(res.data))
+    },[])
 
-{{ alert() }}
+    console.log(carte);
 
-<main class="pages">
+    
+    return(
+        <main>
             <div className="d-flex flex-row justify-content-center align-items-center">
                 <img src="../../media/doodle/forme-organique1.png" className="decoTitre"/>
                 <h1>Carte du festival</h1>
@@ -16,7 +25,17 @@
             <div id="conteneurCarte" className="d-flex flex-column flex-md-row ">
                 
                 <div id="map">
-                    
+                    {
+                        carte.map((carte)=>
+                            carte.map((setup)=>
+                         
+                    <MapContainer center={[setup.lat, setup.lng]} zoom={13} scrollWheelZoom={false}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                    </MapContainer>
+                   ))}
                 </div>
             
                 <div id="conteneurInformations">
@@ -77,4 +96,6 @@
             </div>
              
         </main>
-{% endblock %}
+    )
+}
+export default Carte;*/

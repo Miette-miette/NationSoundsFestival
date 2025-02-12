@@ -15,9 +15,9 @@ final class PartnersController extends AbstractController
     {
         $partner = $entityManager->getRepository(Partner::class)->findAll();
 
-        return $this->render('pages/home.html.twig', [
+        return $this->render('Pages/partners.html.twig', [
             'controller_name' => 'HomeController',
-            'partner' => $partner
+            'partenaires' => $partner
         ]);
     }
 }

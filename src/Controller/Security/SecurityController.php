@@ -40,7 +40,6 @@ final class SecurityController extends AbstractController
 
         $cookie = Cookie::create('user')
         ->withValue('log')
-        ->withExpires(time()+3000)
         ->withHttpOnly(false);
 
         $response = new Response();

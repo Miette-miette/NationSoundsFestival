@@ -26,28 +26,27 @@ function Navbar() {
 
   const UserAuth = () => {
 
-    if (cookieValue === false){
-
-    return(
-      <div>
-          <a href="/connexion">
-            <button className="loginbtn">Se connecter</button>
-          </a>
-          <a href="/inscription">
-              <button className="loginbtn">S'inscrire</button>
-          </a>
-      </div>
-      )    
+    if (cookieValue === ''){
+      return(
+        <div>
+            <a href="/connexion">
+              <button className="loginbtn">Se connecter</button>
+            </a>
+            <a href="/inscription">
+                <button className="loginbtn">S'inscrire</button>
+            </a>
+        </div>
+        )    
     }
   
     if (cookieValue !== undefined){
  
     return(
-      <div>
+      
         <a href="/connexion">
-          <button className="loginbtn">Acceder à mon espace</button>
+          <button className="dashboardBtn">Acceder à mon espace</button>
         </a>
-      </div>
+      
       )    
     }
   }
@@ -77,8 +76,6 @@ function Navbar() {
 
       <div className={`navbar-login ${showLogin ? "show-login" : "hide"}`}>
         <h2>Mon espace Nation-Sounds</h2>
-
-        <p>Cookie = {cookieValue}</p>
         <div>{UserAuth()}</div>
       </div>
 
@@ -96,7 +93,7 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/concerts" className="links" onClick={handleShowMenu}>
+            <a href="/concert" className="links" onClick={handleShowMenu}>
               <img src='../../media/doodle/cassette.png' alt="cassette audio"/>
               <p>CONCERTS</p>
             </a>
@@ -129,7 +126,7 @@ function Navbar() {
             </a>
           </li> 
           <li>
-            <a href='https://127.0.0.1:8001/index.php/contact' className="links" onClick={handleShowMenu}>
+            <a href='/contact' className="links" onClick={handleShowMenu}>
               <img src='../../media/doodle/metal.png' alt="main qui fait le symbole métal "/>
               <p>CONTACT</p>
             </a>

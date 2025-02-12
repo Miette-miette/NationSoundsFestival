@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class FAQController extends AbstractController
 {
-    #[Route('/faq', name: 'app_faq')]
+    #[Route('/FAQ', name: 'app_faq')]
     public function index(): Response
     {
         return $this->render('pages/FAQ.html.twig', [

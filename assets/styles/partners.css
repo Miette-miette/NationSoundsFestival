@@ -1,0 +1,40 @@
+/*PARTENAIRE*/
+
+.conteneurPartenaire{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #8f505e;
+    border-style: solid;
+    border-color:#492E34;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 8px;
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));   
+}
+
+.conteneurPartenaire>h2{
+    color: beige;
+    font-size: 30px;
+}
+
+.imgPartenaireConteneur {
+    background-color: rgb(255, 255, 255);
+    /* height: 200px; */
+    width: 100%;
+    margin: 1% 0;
+    border-style: solid;
+    border-color: #492E34;
+    border-radius: 8px;
+}
+
+.imgPartenaireConteneur>img {
+    width: 200px;
+    height: fit-content;
+    margin: 5%;
+}
+
+.imgPartenaireConteneur>div>h2{
+    display: flex;
+    justify-content: flex-start;
+}

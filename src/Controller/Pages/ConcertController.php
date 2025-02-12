@@ -15,9 +15,9 @@ final class ConcertController extends AbstractController
     {
         $concert = $entityManager->getRepository(Concert::class)->findAll();
 
-        return $this->render('pages/home.html.twig', [
+        return $this->render('Pages/concert.html.twig', [
             'controller_name' => 'HomeController',
-            'concert' => $concert
+            'concerts' => $concert
         ]);
     }
 }

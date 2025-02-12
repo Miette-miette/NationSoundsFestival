@@ -40,6 +40,7 @@ class Concert
     private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'concerts')]
+    #[ORM\JoinColumn(name:"location_id",referencedColumnName:"id", nullable: true)]
     private ?Location $location = null;
 
     public function getId(): ?int
