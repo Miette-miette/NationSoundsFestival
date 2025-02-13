@@ -1,13 +1,15 @@
-/*import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 //import { MapContainer, TileLayer, useMap } from 'react-leaflet'
+import {MapContainer, TileLayer, useMap} from "https://cdn.esm.sh/react-leaflet";
 
-const Carte = () =>{
+
+function Map(){
     const [carte, setCarte]= useState([])
     //const [marker, setMarkers]= useState([])
 
     useEffect(() => {
-        axios.get("https://127.0.0.1:8001/index.php/api/carte")
+        axios.get("https://127.0.0.1:8000/index.php/api/carte")
         .then((res)=>setCarte(res.data))
     },[])
 
@@ -98,4 +100,4 @@ const Carte = () =>{
         </main>
     )
 }
-export default Carte;*/
+export default Map;
