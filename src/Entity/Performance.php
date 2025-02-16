@@ -6,6 +6,7 @@ use App\Repository\PerformanceRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PerformanceRepository::class)]
@@ -15,17 +16,22 @@ class Performance
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api_event'])]
     private ?int $id = null;
 
+    #[Groups(['api_event'])]
     #[ORM\Column(length: 30)]
     private ?string $name = null;
 
+    #[Groups(['api_event'])]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $begin_datetime = null;
 
+    #[Groups(['api_event'])]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $end_datetime = null;
 
+    #[Groups(['api_event'])]
     #[ORM\Column(length: 6000)]
     private ?string $content = null;
 
@@ -33,12 +39,14 @@ class Performance
     #[Vich\UploadableField(mapping: 'ns_img', fileNameProperty: 'imageName' )]
     private ?File $imageFile = null;
 
+    #[Groups(['api_event'])]
     #[ORM\Column(nullable: true)]
     private ?string $img = null;
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[Groups(['api_event'])]
     #[ORM\ManyToOne(inversedBy: 'performances')]
     #[ORM\JoinColumn(name:"location_id",referencedColumnName:"id", nullable: true)]
     private ?Location $location = null;
