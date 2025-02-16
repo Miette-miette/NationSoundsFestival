@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class ConcertAPIController extends AbstractController
@@ -21,8 +22,9 @@ class ConcertAPIController extends AbstractController
             $serializer->serialize($concerts, 'json'),
             200,
             [],
-            true
+            true,
+            dd($serializer)
         );
-        return $this->json($data, Response::HTTP_OK);
+        return $this->json($data,Response::HTTP_OK ,context: ['groups' => ["api_event"]]);
     }  
 }

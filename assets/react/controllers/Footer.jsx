@@ -1,4 +1,6 @@
-function footer(){
+import React from "react";
+
+function Footer(){
     return(
         <footer className="d-flex flex-column justify-content-end align-items-center ">
 
@@ -56,7 +58,7 @@ function footer(){
 
             <div id="bottomFooter">
                 <div id="informationFooter" className="d-flex flex-row justify-content-center align-items-center"> 
-                    <a href="/"> FAQ</a>
+                    <a href="/faq"> FAQ</a>
                     <p>|</p>
                     <a href="/contact"> Contact</a>
                     <p>|</p>
@@ -68,4 +70,4 @@ function footer(){
         </footer>
     )
 }
-export default footer;
+export default Footer;

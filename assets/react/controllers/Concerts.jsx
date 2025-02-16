@@ -1,4 +1,4 @@
-import React from "react";
+import React , { Component, useState } from 'react';
 import axios from "axios";
 
 function Concerts(){
@@ -6,7 +6,7 @@ function Concerts(){
     const [concerts, setConcerts]= useState([])
 
     useEffect(() => {
-        axios.get("https://127.0.0.1:8000/api/map")
+        axios.get("/api/concert")
         .then((res)=>setConcerts(res.data))
     },[])
 

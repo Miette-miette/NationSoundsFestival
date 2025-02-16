@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
 #[UniqueEntity('name')]
@@ -19,20 +20,27 @@ class Location
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api','api_event'])]
     private ?int $id = null;
-
+    
+    #[Groups(['api','api_event'])]
     #[ORM\Column(length: 255)]
+    
     private ?string $name = null;
-
+    
+    #[Groups(['api'])]
     #[ORM\Column(type: Types::DECIMAL, precision: 20, scale: 16)]
     private ?string $lat = null;
 
+    #[Groups(['api'])]
     #[ORM\Column(type: Types::DECIMAL, precision: 20, scale: 16)]
     private ?string $lng = null;
 
+    #[Groups(['api'])]
     #[ORM\Column(length: 30)]
     private ?string $type = null;
 
+    #[Groups(['api'])]
     #[ORM\Column(length: 3000)]
     private ?string $content = null;
 
@@ -40,12 +48,14 @@ class Location
     #[Vich\UploadableField(mapping: 'ns_icon', fileNameProperty: 'imageName' )]
     private ?File $imageFile = null;
 
+    #[Groups(['api'])]
     #[ORM\Column(nullable: true)]
     private ?string $img = null;
  
      #[ORM\Column(nullable: true)]
      private ?\DateTimeImmutable $updatedAt = null;
 
+     
     /**
      * @var Collection<int, Concert>
      */

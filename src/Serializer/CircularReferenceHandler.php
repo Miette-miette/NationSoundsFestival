@@ -34,3 +34,4 @@ class CircularReferenceHandler
        return $object->getId();
     }
 }
+https://thecodingmachine.com/serialisation-des-donnees-sf-serializer/
