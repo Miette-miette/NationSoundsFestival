@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 //import { MapContainer, TileLayer, useMap } from 'react-leaflet'
-import {MapContainer, TileLayer, useMap} from "https://cdn.esm.sh/react-leaflet";
+//import {MapContainer, TileLayer, useMap} from "https://cdn.esm.sh/react-leaflet";
 
 
 function Map(){
