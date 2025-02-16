@@ -19,11 +19,11 @@ class ConcertAPIController extends AbstractController
 
         $concerts = $entityManager->getRepository(Concert::class)->findAll();
         return new JsonResponse(
-            $serializer->serialize($concerts, 'json'),
+            $serializer->serialize($concerts, 'json',["groups" => ['api_event'], AbstractObjectNormalizer::ENABLE_MAX_DEPTH => true] ),
             200,
             [],
             true
         );
-        return $this->json($data, context: ["groups" => ['api_event'], AbstractObjectNormalizer::ENABLE_MAX_DEPTH => true]);
+        return $this->json($data, Response::HTTP_OK);
     }
 }
