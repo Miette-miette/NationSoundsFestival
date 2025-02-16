@@ -10,7 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Serializer\Attribute\MaxDepth;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
 #[UniqueEntity('name')]
@@ -25,7 +26,6 @@ class Location
     
     #[Groups(['api','api_event'])]
     #[ORM\Column(length: 255)]
-    
     private ?string $name = null;
     
     #[Groups(['api'])]
@@ -49,7 +49,8 @@ class Location
     private ?File $imageFile = null;
 
     #[Groups(['api'])]
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "string", nullable: true)]
+    #[MaxDepth(1)]
     private ?string $img = null;
  
      #[ORM\Column(nullable: true)]
@@ -159,7 +160,7 @@ class Location
     {
         $this->imageFile = $imageFile;
 
-        if (null !== $imageFile) {
+        if ($imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();

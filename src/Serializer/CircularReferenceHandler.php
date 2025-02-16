@@ -25,7 +25,7 @@ class CircularReferenceHandler
             case $object instanceof Location:
                 return $this->router->generate('api_map', ['location'=> $object->getName()]);
             case $object instanceof Concert:
-                return $this->router->generate('api_concert', ['location'=> $object->getName()]);
+                return $this->router->generate('api_map', ['location'=> $object->getName()]);
             case $object instanceof Workshop:
                 return $this->router->generate('api_map', ['location'=> $object->getId()]);
             case $object instanceof Performance:

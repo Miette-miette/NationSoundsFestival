@@ -8,13 +8,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class ConcertAPIController extends AbstractController
 {
    #[Route('/api/concert', name: 'api_concert', methods: ['GET'])]
-    public function api(SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    public function api(SerializerInterface $serializer, EntityManagerInterface $entityManager): Response
     {
 
         $concerts = $entityManager->getRepository(Concert::class)->findAll();
@@ -22,9 +22,8 @@ class ConcertAPIController extends AbstractController
             $serializer->serialize($concerts, 'json'),
             200,
             [],
-            true,
-            dd($serializer)
+            true
         );
-        return $this->json($data,Response::HTTP_OK ,context: ['groups' => ["api_event"]]);
-    }  
+        return $this->json($data, context: ["groups" => ['api_event'], AbstractObjectNormalizer::ENABLE_MAX_DEPTH => true]);
+    }
 }
