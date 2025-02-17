@@ -16,14 +16,16 @@ function Programmation(){
     }
     
     useEffect(() => {
-        axios.get("https://127.0.0.1:8000/index.php/api/programmation")
+        axios.get("https://127.0.0.1:8000/index.php/api/programme")
         .then((res) => setProgrammation(res.data))
     },[])
 
+    
+    const concert = programmation[0];
+    const performance = programmation[1];
 
-    const performance= programmation[0];
-    const concert= programmation[1];
-    const atelier= programmation[2];
+    const event = concert.concat(performance);
+    console.log(event);
 
     //FILTRES
 
@@ -40,21 +42,18 @@ function Programmation(){
             ...prevFilters,
             [name]: value,
         }))}
+
     console.log(filters);
+    
 
     const filteredProg = programmation.filter((prog) => {
-        prog.map((prog)=>{
-
-            //ce bloc fonctionne! plus qu'a setup les heures et les types d'event (nouvelle column dans les tables? )
-            if((filters.jour == 'Tous' || prog.beginDatetime.includes(filters.jour)) && (filters.lieu == 'Tous' || prog.Location.name.includes(filters.lieu))){
-              return console.log(prog);
-               
-            }
-                
-            //(prog.beginDatetime.includes(filters.heure) >= filters.heure) &&
-        
+       
+            return((filters.jour == 'Tous' || prog.begin_datetime.includes(filters.jour)) && (filters.lieu == 'Tous' || prog.location.name.includes(filters.lieu)))
         })
-    });
+    ;
+
+    console.log(filteredProg);
+    
 
 
     return(
@@ -126,22 +125,21 @@ function Programmation(){
             <FilterContext.Provider value={{filters, handleFilterChange}}>
             <div id="progConteneur" className="d-flex flex-row flex-wrap justify-content-center"> 
                 {
-                    filteredProg.map((prog)=> { console.log(filteredProg);
+                    filteredProg.map((prog)=> ( 
                     
-                     
-                            <div className="progItem d-flex flex-column" id="%id%" style={{backgroundImage: `url(${prog.titre})`}}>
+                            <div className="progItem d-flex flex-column" id="%id%" style={{backgroundImage: `url(${prog.name})`}}>
                                 <div className="conteneurImg d-flex flex-row justify-content-end align-items-start">
                                     <img className="iconScene d-flex justify-content-end align-items-end" src="%iconS%"/>
                                 </div>
                                 
                                 <div className="progTxt">
-                                    <h3 className="title">{prog.titre}</h3>
-                                    <p className="scene">Lieu: <strong>{prog.Location.name}</strong></p>
-                                    <p className="date"><strong>{prog.beginDatetime}</strong></p>
-                                    <p className="heure">{prog.beginDatetime}</p>
+                                    <h3 className="title">{prog.name}</h3>
+                                    <p className="scene">Lieu: <strong>{prog.location.name}</strong></p>
+                                    <p className="date"><strong>{prog.begin_datetime}</strong></p>
+                                    <p className="heure">{prog.begin_datetime}</p>
                                 </div>                    
                             </div>
-                        })  
+                        ))  
                 }
             </div>
             </FilterContext.Provider>

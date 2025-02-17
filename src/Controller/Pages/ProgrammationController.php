@@ -19,7 +19,7 @@ final class ProgrammationController extends AbstractController
         $performances = $entityManager->getRepository(Performance::class)->findAll();
         $workshop = $entityManager->getRepository(Workshop::class)->findAll();
 
-        return $this->render('pages/home.html.twig', [
+        return $this->render('pages/programmation.html.twig', [
             'controller_name' => 'HomeController',
             'concert' => $concert,
             'performances' => $performances,
