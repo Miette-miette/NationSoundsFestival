@@ -229,11 +229,11 @@
 }
 
 .carouselCard{
-    background-image: none;
-    background-size: cover;
-    background-position: center;
     height: 320px;
-    justify-content: end;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background-color:#8f505e;
     border-style: solid;
     border-color: #492E34;
@@ -244,10 +244,20 @@
     
 }
 
+.imgCarousel{
+    width: 310px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
 .infoCard {
-    width: 300px;
+    width: 100%;
     background: linear-gradient(0deg, rgba(0,0,0,0.6278886554621849) 49%, rgba(255,255,255,0) 100%);
     padding: 20px;
+    position: absolute;
+    z-index: 1;
 }
 
 .infoCard>h3,.infoCard>p{

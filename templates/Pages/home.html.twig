@@ -38,7 +38,8 @@
             <div id="conteneurCarousel" class="d-flex flex-row" >
                 {% for concerts in concert %}
                        
-                    <div class="carouselCard" >
+                    <div class="carouselCard" style="background-image: url("{{ vich_uploader_asset( concerts, 'imageFile')}}")">
+                        <img class="imgCarousel" src="{{ vich_uploader_asset( concerts, 'imageFile')}}"/>
                         <div class="infoCard">
                             <h3 class="title">{{concerts.name}}</h3>
                             <p class="scene">{{concerts.location}}</p>
@@ -87,7 +88,7 @@
             {% for news in new %}
                 <div class="articleCard d-flex flex-column" id="{{news.id}}">
                     <div class="articleImg">
-                        <img src={{news.imageName}}/>
+                        <img src={{ vich_uploader_asset( news, 'imageFile')}}/>
                     </div>
                     <div class="articleDescription">
                         <h3 class="title">{{news.title}}</h3>
