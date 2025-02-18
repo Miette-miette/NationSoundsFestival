@@ -4,9 +4,10 @@
 
 {% block body %}
 
-{{ alert() }}
+    {{ alert() }}
 
-
-    <div {{ react_component('Map')}}></div>
-                
+    <main class="pages">
+        <div {{ react_component('Map')}}></div>
+    </main>
+               
 {% endblock %}

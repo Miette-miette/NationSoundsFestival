@@ -4,7 +4,10 @@
 
 {% block body %}
 
-{{ alert() }}
+    {{ alert() }}
 
-<div {{ react_component('Programmation')}}></div>
+    <main class="pages">
+        <div {{ react_component('Programmation')}}></div>
+    </main>
+    
 {% endblock %}
