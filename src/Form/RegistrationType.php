@@ -33,7 +33,7 @@ class RegistrationType extends AbstractType
                 'constraints' => [
                     new Assert\NotBlank(),
                     new Assert\Length(['min' => 2, 'max' => 50])
-                ]          
+                ]
             ])
             ->add('lastName', TextType::class,[
                 'attr' => [
@@ -42,11 +42,11 @@ class RegistrationType extends AbstractType
                     'maxlength' => 50,
                 ],
                 'label' => 'Nom',
-                'required' => false, 
+                'required' => false,
                 'constraints' => [
                     new Assert\Length(['min' => 2, 'max' => 50])
                 ]
-                      
+
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
@@ -59,13 +59,13 @@ class RegistrationType extends AbstractType
                     new Assert\NotBlank(message:'Veuillez renseigner une adresse mail valide'),
                     new Assert\Email(),
                     new Assert\Length(['min' => 2, 'max' => 180])
-                ]          
+                ]
             ])
-    
+
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
-                    'label' => 'Mot de passe',                    
+                    'label' => 'Mot de passe',
                 ],
                 'second_options' => [
                     'label' => 'Confirmation du mot de passe'
@@ -74,11 +74,11 @@ class RegistrationType extends AbstractType
             ])
 
             ->add('privacy', CheckboxType::class, [
-                'label'    => "J'ai pris connaissance de la politique de confidentialité",
+                'label' => "J'ai pris connaissance de la politique de confidentialité et j'accepte les termes.",
                 'required' => true,
                 'mapped' => false,
             ])
-            
+
             ->add('Inscription',SubmitType::class)
 
             ->add('captcha', Recaptcha3Type::class, [
@@ -95,5 +95,5 @@ class RegistrationType extends AbstractType
         ]);
     }
 
-    
+
 }

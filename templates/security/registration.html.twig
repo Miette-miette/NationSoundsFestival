@@ -11,8 +11,20 @@
                 <img src="/images/ns_mascotte.png" class="decoTitreShake"/>
             </div>
 
-            {{ form(form)}}
-        </div>        
+            {{ form_start(form)}}
+                {{form_row(form.firstName)}}
+                {{form_row(form.lastName)}}
+                {{form_row(form.email)}}
+                {{form_row(form.password)}}
+                <div class="d-flex flex-row">
+                    {{form_row(form.privacy)}}
+                    <span>
+                        <a href="/"><p>Politique de confidentialité<p></a>
+                    </span>
+                </div>
+
+            {{ form_end(form)}}
+        </div>
     </main>
-    
+
 {% endblock %}

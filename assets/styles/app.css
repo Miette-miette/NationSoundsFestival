@@ -2,7 +2,7 @@
 @import 'home.css';
 @import 'alert.css';
 @import 'partners.css';
-/*@import 'social-media.css';*/
+@import 'social-media.css';
 
 /*ANIMATIONS*/
 
@@ -51,7 +51,7 @@
 
 body{
     background: #FFE3B0 !important;
-    
+
 }
 
 main{
@@ -152,7 +152,7 @@ tbody{
     justify-content: center;
     filter: drop-shadow(2px 4px 4px #492E34);
     vertical-align: bottom;
-    
+
 }
 
 .table thead th {
@@ -166,14 +166,14 @@ tbody{
 }
 
 .table-primary, .table-primary>th, .table-primary>td {
-    background-color: transparent; 
+    background-color: transparent;
 }
 
 td{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 
 .table-hover .table-primary:hover {

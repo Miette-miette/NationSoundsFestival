@@ -13,11 +13,8 @@ final class PartnersController extends AbstractController
     #[Route('/partenaires', name: 'app_partners')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $partner = $entityManager->getRepository(Partner::class)->findAll();
-
         return $this->render('Pages/partners.html.twig', [
-            'controller_name' => 'HomeController',
-            'partenaires' => $partner
+            'partner' => $entityManager->getRepository(Partner::class)->findAll()
         ]);
     }
 }

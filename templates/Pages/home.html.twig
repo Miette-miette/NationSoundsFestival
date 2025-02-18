@@ -16,14 +16,14 @@
             <img src="../media/doodle/fleur1.png" id="fleur1"/>
             <img src="../media/doodle/fleur3.png" id="fleur2"/>
             <img src="../media/doodle/cassette.png" id="cassette"/>
-            <img src="../media/doodle/etoile.png" id="etoile"/>                   
+            <img src="../media/doodle/etoile.png" id="etoile"/>
         </div>
 
         <div class="button-style" id="btnlanding">
             <a href="/">Découvrez le programme</a>
         </div>
         <img src="../media/doodle/happyfleur2.png" id="fleurbtn"/>
-    </section> 
+    </section>
 
     <section id="affiche" class="d-flex flex-column justify-content-center align-items-center">
         <div class="d-flex flex-row justify-content-center">
@@ -33,22 +33,22 @@
         </div>
 
         <p>Une édition haute en couleurs et en talents internationaux!</p>
-                
+
         <div id="carouselArtiste" >
             <div id="conteneurCarousel" class="d-flex flex-row" >
                 {% for concerts in concert %}
-                       
-                    <div class="carouselCard" style="background-image: url("{{ vich_uploader_asset( concerts, 'imageFile')}}")">
-                        <img class="imgCarousel" src="{{ vich_uploader_asset( concerts, 'imageFile')}}"/>
+
+                    <div class="carouselCard" >
+                        <img class="imgCarousel" src={{ vich_uploader_asset( concerts, 'imageFile')}}/>
                         <div class="infoCard">
                             <h3 class="title">{{concerts.name}}</h3>
                             <p class="scene">{{concerts.location}}</p>
                             <p class="date">{{concerts.beginDatetime|date('d-m')}}</p>
                         </div>
                     </div>
-                    
+
                 {% endfor %}
-            </div>                       
+            </div>
         </div>
     </section>
 
@@ -94,7 +94,7 @@
                         <h3 class="title">{{news.title}}</h3>
                         <p class="chapeau">{{news.summary}}</p>
                     </div>
-                </div> 
+                </div>
             {% endfor %}
         </div>
 
@@ -111,14 +111,14 @@
         <div id="assoTxt" class="d-flex flex-column flex-lg-row align-items-center">
             <img src="../../media/photo/pexels-rdne-6646917.jpg" width="40%"/>
             <div>
-                <p><strong>National Sounds se veut être un festival inclusif et se distingue par son engagement humanitaire, visant à rassembler des personnes de diverses origines et à promouvoir 
+                <p><strong>National Sounds se veut être un festival inclusif et se distingue par son engagement humanitaire, visant à rassembler des personnes de diverses origines et à promouvoir
                 la solidarité globale.</strong></p>
-                <p> En intégrant des initiatives telles que des collectes de fonds pour des causes sociales, des stands d'information 
-                sur des problématiques mondiales et des ateliers de sensibilisation, le festival ne se contente pas de célébrer la diversité musicale, 
+                <p> En intégrant des initiatives telles que des collectes de fonds pour des causes sociales, des stands d'information
+                sur des problématiques mondiales et des ateliers de sensibilisation, le festival ne se contente pas de célébrer la diversité musicale,
                 mais il agit également comme une plateforme pour le changement social.</p>
-                <p>Grâce à des partenariats avec des organisations caritatives et à l'inclusion 
-                d'artistes de communautés marginalisées, ce type de festival incarne un esprit d'unité et de bienveillance, offrant une expérience enrichissante 
-                tant sur le plan culturel qu'humanitaire.</p>    
+                <p>Grâce à des partenariats avec des organisations caritatives et à l'inclusion
+                d'artistes de communautés marginalisées, ce type de festival incarne un esprit d'unité et de bienveillance, offrant une expérience enrichissante
+                tant sur le plan culturel qu'humanitaire.</p>
             </div>
         </div>
     </section>

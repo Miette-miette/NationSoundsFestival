@@ -75,11 +75,18 @@ class Location
     #[ORM\OneToMany(targetEntity: Workshop::class, mappedBy: 'location')]
     private Collection $workshops;
 
+    /**
+     * @var Collection<int, Event>
+     */
+    #[ORM\OneToMany(targetEntity: Event::class, mappedBy: 'location')]
+    private Collection $events;
+
     public function __construct()
     {
         $this->concerts = new ArrayCollection();
         $this->performances = new ArrayCollection();
         $this->workshops = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -275,5 +282,35 @@ class Location
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): static
+    {
+        if (!$this->events->contains($event)) {
+            $this->events->add($event);
+            $event->setLocation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): static
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getLocation() === $this) {
+                $event->setLocation(null);
+            }
+        }
+
+        return $this;
     }
 }
