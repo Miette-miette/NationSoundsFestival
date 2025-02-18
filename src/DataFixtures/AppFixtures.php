@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Alert;
 use App\Entity\Concert;
 use App\Entity\Contact;
+use App\Entity\Event;
 use App\Entity\News;
 use App\Entity\Partner;
 use App\Entity\Performance;
@@ -41,19 +42,19 @@ class AppFixtures extends Fixture
             $manager->persist($alert);
         }
 
-        //CONCERTS
-        $concerts = [];
+        //EVENTS
+        $event = [];
         for ($i = 0; $i < 10; $i++) {
-            $concert = new Concert();
-            $concert->setName($this->faker->name())
+            $event = new Event();
+            $event->setName($this->faker->name())
                 ->setBeginDatetime($this->faker->dateTime())
                 ->setEndDatetime($this->faker->dateTime())
                 ->setContent($this->faker->text())
                 ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
                 //->setLocation(null);
 
-            $concerts[] = $concert;
-            $manager->persist($concert);
+            $events[] = $event;
+            $manager->persist($event);
         }
 
         //CONTACT
@@ -78,7 +79,7 @@ class AppFixtures extends Fixture
                 ->setSummary($this->faker->text())
                 ->setContent($this->faker->text())
                 ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
-                
+
             $news[] = $new;
             $manager->persist($new);
         }
@@ -94,36 +95,6 @@ class AppFixtures extends Fixture
 
             $partners[] = $partner;
             $manager->persist($partner);
-        }
-
-        //PERFORMANCES
-        $performances = [];
-        for ($i = 0; $i < 10; $i++) {
-            $performance = new Performance();
-            $performance->setName($this->faker->name())
-                ->setBeginDatetime($this->faker->dateTime())
-                ->setEndDatetime($this->faker->dateTime())
-                ->setContent($this->faker->text())
-                ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
-                //->setLocation(null);
-
-            $performances[] = $performance;
-            $manager->persist($performance);
-        }
-        
-        //WORKSHOPS
-        $workshops = [];
-        for ($i = 0; $i < 10; $i++) {
-            $workshop = new Workshop();
-            $workshop->setName($this->faker->name())
-                ->setBeginDatetime($this->faker->dateTime())
-                ->setEndDatetime($this->faker->dateTime())
-                ->setContent($this->faker->text())
-                ->setImageName($this->faker->imageUrl($width = 640, $height = 480));
-                //->setLocation(null);
-
-            $workshops[] = $workshop;
-            $manager->persist($workshop);
         }
 
         //USERS
@@ -162,7 +133,7 @@ class AppFixtures extends Fixture
             $hashPassword = $this->hasher->hashPassword(
                 $user,
                 'password'
-            );         
+            );
             $user->setPassword($hashPassword);
             $users[] = $user;
             $manager->persist($user);

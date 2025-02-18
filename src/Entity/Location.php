@@ -21,13 +21,13 @@ class Location
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api','api_event'])]
+    #[Groups(['api'])]
     private ?int $id = null;
-    
+
     #[Groups(['api','api_event'])]
     #[ORM\Column(length: 255)]
     private ?string $name = null;
-    
+
     #[Groups(['api'])]
     #[ORM\Column(type: Types::DECIMAL, precision: 20, scale: 16)]
     private ?string $lat = null;
@@ -52,11 +52,11 @@ class Location
     #[ORM\Column(type: "string", nullable: true)]
     #[MaxDepth(1)]
     private ?string $img = null;
- 
+
      #[ORM\Column(nullable: true)]
      private ?\DateTimeImmutable $updatedAt = null;
 
-     
+
     /**
      * @var Collection<int, Concert>
      */

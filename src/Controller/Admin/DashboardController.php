@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Alert;
 use App\Entity\Concert;
 use App\Entity\Contact;
+use App\Entity\Event;
 use App\Entity\Location;
 use App\Entity\Map;
 use App\Entity\News;
@@ -41,11 +42,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home');
 
         yield MenuItem::section('Programmation du festival');
- 
-        yield MenuItem::linkToCrud('Ateliers', 'fa-solid fa-palette', Workshop::class);
-        yield MenuItem::linkToCrud('Concerts', 'fa-solid fa-music', Concert::class);
-        yield MenuItem::linkToCrud('Performances', 'fa-solid fa-wand-magic-sparkles', Performance::class);
-        
+
+        yield MenuItem::linkToCrud('Evènements', 'fa-solid fa-music', Event::class);
+
         yield MenuItem::section('Carte');
 
         yield MenuItem::linkToCrud('Carte', 'fa-solid fa-map', Map::class);
@@ -58,12 +57,12 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Partenaires', 'fa-solid fa-handshake', Partner::class);
 
         yield MenuItem::section('Utilisateurs');
-        
+
         yield MenuItem::linkToCrud('Utilisateurs', 'fa-solid fa-user', User::class);
         yield MenuItem::linkToCrud('Demandes de contact', 'fa-solid fa-envelope', Contact::class);
-        
-        
-        
-        
+
+
+
+
     }
 }

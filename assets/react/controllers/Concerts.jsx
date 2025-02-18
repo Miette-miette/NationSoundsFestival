@@ -3,16 +3,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Concerts(){
-    
+
     const [concerts, setConcerts]= useState([])
 
     useEffect(() => {
-        axios.get("https://127.0.0.1:8000/api/concert")
+        axios.get("https://127.0.0.1:8000/api/event")
         .then((res)=>setConcerts(res.data))
     },[])
 
     console.log(concerts);
-    
+
 
     // SETUP DES BOUTONS
     const btn= [
@@ -29,11 +29,11 @@ function Concerts(){
             idJour:"DIM 28/08"
         },
     ]
-    
+
 
     const [selectedBtn, setSelectedBtn] = useState("2024-07-26")
     const jourData= Object.values(btn)
-    
+
     return(
         <main>
            <div id="concertHeader" className="d-flex flex-column justify-content-center align-items-center">
@@ -42,49 +42,49 @@ function Concerts(){
                     <h1>Concerts</h1>
                     <img src="../../media/doodle/cassette.png" className="decoTitreShake"/>
                 </div>
-                
+
                 <p>Retrouvez la programmation des concerts par jour</p>
 
                 <div className="sceneBtn d-flex flex-row justify-content-center">
-                    { jourData.map((data) => 
+                    { jourData.map((data) =>
                         <div>
                             <button id={data.date} name="inputJour" className="button-style" onClick={(e) => setSelectedBtn(e.target.id)} >
                                 {data.idJour}
                             </button>
-                           
+
                         </div>
                     )}
                 </div>
             </div>
 
             <div id="scenes" className="d-flex flex-column flex-md-row flex-wrap justify-content-center align-items-center align-items-md-start">
-            
+
                 <article className="sceneConteneur d-flex flex-column justify-content-center">
                     <div className="sceneHeader d-flex flex-row justify-content-center align-items-center">
                         <img src="../../media/scene/euphorie.png" width="80px"/>
                         <h2>EUPHORIE</h2>
-                    </div> 
+                    </div>
 
                     <div id="euphorie">
                     {concerts
-                        .map((euphorie)=> 
+                        .map((euphorie)=>
                         {
-                            const location = euphorie.location; 
+                            const location = euphorie.location;
                             if(euphorie.begin_datetime.includes(selectedBtn) && location.name.includes("Euphorie"))
                             {
                                 return (
                                     <div className="concertItem" key={euphorie.name}>
-                                        
+
                                             <h3 className="title d-flex justify-content-start" >{euphorie.name}</h3>
                                             <p className="date">{euphorie.begin_datetime}</p>
                                             <p className="heure">{euphorie.begin_datetime}</p>
-                                        
+
                                     </div>
                                 )
                             }
                         })
-                    }        
-                    </div> 
+                    }
+                    </div>
                 </article>
 
                 <article className="sceneConteneur">
@@ -95,7 +95,7 @@ function Concerts(){
 
                     <div id="fusion">
                     {concerts
-                        .map((fusion)=> 
+                        .map((fusion)=>
                         {
                             const location = fusion.location;
                             if(fusion.begin_datetime.includes(selectedBtn) && location.name.includes("Fusion"))
@@ -124,7 +124,7 @@ function Concerts(){
 
                     <div id="reverie">
                     {concerts
-                        .map((reverie)=> 
+                        .map((reverie)=>
                         {
                             const location = reverie.location;
                             if(reverie.begin_datetime.includes(selectedBtn) && location.name.includes("Reverie"))
@@ -153,7 +153,7 @@ function Concerts(){
 
                     <div id="resonance">
                     {concerts
-                        .map((resonance)=> 
+                        .map((resonance)=>
                         {
                             const location = resonance.location;
                             if(resonance.begin_datetime.includes(selectedBtn) && location.name.includes("Resonance"))
@@ -183,7 +183,7 @@ function Concerts(){
 
                     <div id="prisme">
                     {concerts
-                        .map((prisme)=> 
+                        .map((prisme)=>
                         {
                             const location = prisme.location;
                             if(prisme.begin_datetime.includes(selectedBtn) && location.name.includes("Prisme"))

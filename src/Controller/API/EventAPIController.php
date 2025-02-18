@@ -2,9 +2,8 @@
 
 namespace App\Controller\API;
 
-use App\Entity\Concert;
-use App\Entity\Performance;
-use App\Entity\Workshop;
+
+use App\Entity\Event;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,18 +12,16 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class ProgrammationAPIController extends AbstractController
+class EventAPIController extends AbstractController
 {
-   #[Route('/api/programme', name: 'api_programme', methods: ['GET'])]
+   #[Route('/api/event', name: 'api_event', methods: ['GET'])]
     public function api(SerializerInterface $serializer, EntityManagerInterface $entityManager): Response
     {
 
-        $concerts = $entityManager->getRepository(Concert::class)->findAll();
-        $performance = $entityManager->getRepository(Performance::class)->findAll();
-        $workshop = $entityManager->getRepository(Workshop::class)->findAll();
+        $event = $entityManager->getRepository(Event::class)->findAll();
 
         return new JsonResponse(
-            $serializer->serialize([$concerts, $performance, $workshop], 'json',["groups" => ['api_event'], AbstractObjectNormalizer::ENABLE_MAX_DEPTH => true] ),
+            $serializer->serialize($event, 'json',["groups" => ['api_event'], AbstractObjectNormalizer::ENABLE_MAX_DEPTH => true] ),
             200,
             [],
             true
