@@ -19,7 +19,7 @@
                 {% for partenaire in partenaires %}
                     {% if partenaire.type is same as("Institution") %}
                         <div class="imgPartenaireConteneur  d-flex flex-column flex-lg-row justify-content-center justify-content-md-between align-items-center ">
-                            <img src={{partenaire.imageName}}/>
+                            <img src="{{ vich_uploader_asset( partenaire, 'imageFile')}}"/>
                             <div class="articleDescription d-flex flex-column justify-content-center">
                                 <h2 class="title">{{partenaire.name}}</h2>
                                 <p class="description">{{partenaire.content}}</p>

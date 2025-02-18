@@ -74,12 +74,11 @@ function Concerts(){
                             {
                                 return (
                                     <div className="concertItem" key={euphorie.name}>
-                                        <img className="src" src={euphorie.imageName} width="100px" height="100px"/>
-                                        <div>
+                                        
                                             <h3 className="title d-flex justify-content-start" >{euphorie.name}</h3>
                                             <p className="date">{euphorie.begin_datetime}</p>
                                             <p className="heure">{euphorie.begin_datetime}</p>
-                                        </div>
+                                        
                                     </div>
                                 )
                             }
