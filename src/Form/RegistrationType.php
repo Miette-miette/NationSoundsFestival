@@ -7,6 +7,7 @@ use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
 use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Event\PreSubmitEvent;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -71,13 +72,19 @@ class RegistrationType extends AbstractType
                 ],
                 'invalid_message' => 'Les mots de passe ne sont pas identiques.'
             ])
+
+            ->add('privacy', CheckboxType::class, [
+                'label'    => "J'ai pris connaissance de la politique de confidentialité",
+                'required' => true,
+                'mapped' => false,
+            ])
             
             ->add('Inscription',SubmitType::class)
 
             ->add('captcha', Recaptcha3Type::class, [
                 'constraints' => new Recaptcha3(),
                 'action_name' => 'Inscription',
-            ]);
+            ])
         ;
     }
 
