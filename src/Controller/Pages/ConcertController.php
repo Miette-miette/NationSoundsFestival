@@ -2,7 +2,7 @@
 
 namespace App\Controller\Pages;
 
-use App\Entity\Concert;
+use App\Entity\Event;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,10 +13,9 @@ final class ConcertController extends AbstractController
     #[Route('/concert', name: 'app_concert')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $concert = $entityManager->getRepository(Concert::class)->findAll();
+        $concert = $entityManager->getRepository(Event::class)->findAll();
 
         return $this->render('Pages/concert.html.twig', [
-            'controller_name' => 'HomeController',
             'concerts' => $concert
         ]);
     }

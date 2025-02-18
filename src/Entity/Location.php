@@ -56,25 +56,6 @@ class Location
      #[ORM\Column(nullable: true)]
      private ?\DateTimeImmutable $updatedAt = null;
 
-
-    /**
-     * @var Collection<int, Concert>
-     */
-    #[ORM\OneToMany(targetEntity: Concert::class, mappedBy: 'location')]
-    private Collection $concerts;
-
-    /**
-     * @var Collection<int, Performance>
-     */
-    #[ORM\OneToMany(targetEntity: Performance::class, mappedBy: 'location')]
-    private Collection $performances;
-
-    /**
-     * @var Collection<int, Workshop>
-     */
-    #[ORM\OneToMany(targetEntity: Workshop::class, mappedBy: 'location')]
-    private Collection $workshops;
-
     /**
      * @var Collection<int, Event>
      */
@@ -83,9 +64,6 @@ class Location
 
     public function __construct()
     {
-        $this->concerts = new ArrayCollection();
-        $this->performances = new ArrayCollection();
-        $this->workshops = new ArrayCollection();
         $this->events = new ArrayCollection();
     }
 
@@ -190,101 +168,6 @@ class Location
     }
 
     /**
-     * @return Collection<int, Concert>
-     */
-    public function getConcerts(): Collection
-    {
-        return $this->concerts;
-    }
-
-    public function addConcert(Concert $concert): static
-    {
-        if (!$this->concerts->contains($concert)) {
-            $this->concerts->add($concert);
-            $concert->setLocation($this);
-        }
-
-        return $this;
-    }
-
-    public function removeConcert(Concert $concert): static
-    {
-        if ($this->concerts->removeElement($concert)) {
-            // set the owning side to null (unless already changed)
-            if ($concert->getLocation() === $this) {
-                $concert->setLocation(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Performance>
-     */
-    public function getPerformances(): Collection
-    {
-        return $this->performances;
-    }
-
-    public function addPerformance(Performance $performance): static
-    {
-        if (!$this->performances->contains($performance)) {
-            $this->performances->add($performance);
-            $performance->setLocation($this);
-        }
-
-        return $this;
-    }
-
-    public function removePerformance(Performance $performance): static
-    {
-        if ($this->performances->removeElement($performance)) {
-            // set the owning side to null (unless already changed)
-            if ($performance->getLocation() === $this) {
-                $performance->setLocation(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Workshop>
-     */
-    public function getWorkshops(): Collection
-    {
-        return $this->workshops;
-    }
-
-    public function addWorkshop(Workshop $workshop): static
-    {
-        if (!$this->workshops->contains($workshop)) {
-            $this->workshops->add($workshop);
-            $workshop->setLocation($this);
-        }
-
-        return $this;
-    }
-
-    public function removeWorkshop(Workshop $workshop): static
-    {
-        if ($this->workshops->removeElement($workshop)) {
-            // set the owning side to null (unless already changed)
-            if ($workshop->getLocation() === $this) {
-                $workshop->setLocation(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
-    }
-
-    /**
      * @return Collection<int, Event>
      */
     public function getEvents(): Collection
@@ -313,4 +196,10 @@ class Location
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 }
