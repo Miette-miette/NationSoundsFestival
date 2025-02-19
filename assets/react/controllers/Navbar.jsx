@@ -15,14 +15,12 @@ function Navbar() {
   //Login
 
   const [showLogin, setShowLogin] = useState(false)
-  
+
   const handleShowLogin = () =>{
     setShowLogin(!showLogin)
   };
 
   const [cookieValue, setCookieValue] = useState(Cookies.get("user") || "");
-  
-  console.log(cookieValue);
 
   const UserAuth = () => {
 
@@ -36,21 +34,21 @@ function Navbar() {
                 <button className="loginbtn">S'inscrire</button>
             </a>
         </div>
-        )    
+        )
     }
-  
+
     if (cookieValue !== undefined){
- 
+
     return(
-      
+
         <a href="/connexion">
           <button className="dashboardBtn">Acceder à mon espace</button>
         </a>
-      
-      )    
+
+      )
     }
   }
-  
+
   return (
     <div id="navbar">
 
@@ -71,7 +69,7 @@ function Navbar() {
             </svg>
           </div>
         </div>
-        
+
       </div>
 
       <div className={`navbar-login ${showLogin ? "show-login" : "hide"}`}>
@@ -105,7 +103,7 @@ function Navbar() {
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-up-right" viewBox="0 0 16 16"/>
                 <path fillRule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
                 <path fillRule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-            </a>            
+            </a>
           </li>
           <li>
             <a href='/carte' className="links" onClick={handleShowMenu}>
@@ -124,7 +122,7 @@ function Navbar() {
               <img src='../../media/doodle/metal.png' alt="main qui fait le symbole métal "/>
               <p>PARTENAIRE</p>
             </a>
-          </li> 
+          </li>
           <li>
             <a href='/contact' className="links" onClick={handleShowMenu}>
               <img src='../../media/doodle/metal.png' alt="main qui fait le symbole métal "/>
@@ -138,8 +136,8 @@ function Navbar() {
             </a>
           </li>
         </ul>
-      
-        
+
+
       </nav>
     </div>
   );
