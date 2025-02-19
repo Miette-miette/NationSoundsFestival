@@ -88,7 +88,7 @@
             {% for news in new %}
                 <div class="articleCard d-flex flex-column" id="{{news.id}}">
                     <div class="articleImg">
-                        <img src={{ vich_uploader_asset( news, 'imageFile')}}/>
+                        <img src="{{ vich_uploader_asset( news, 'imageFile')}}"/>
                     </div>
                     <div class="articleDescription">
                         <h3 class="title">{{news.title}}</h3>
