@@ -19,7 +19,7 @@ class PagesController extends AbstractController
         $concert = $entityManager->getRepository(Event::class)->findAll();
         $new = $entityManager->getRepository(News::class)->findAll();
 
-        return $this->render('pages/home.html.twig', [
+        return $this->render('Pages/home.html.twig', [
             'concert' => $concert,
             'new' => $new
         ]);
@@ -40,7 +40,7 @@ class PagesController extends AbstractController
     {
         $event = $entityManager->getRepository(Event::class)->findAll();
 
-        return $this->render('pages/programmation.html.twig', [
+        return $this->render('Pages/programmation.html.twig', [
             'event' => $event
         ]);
     }
@@ -56,7 +56,7 @@ class PagesController extends AbstractController
     #[Route('/reseaux-sociaux', name: 'app_social_media')]
     public function social_media(): Response
     {
-        return $this->render('pages/social_media.html.twig');
+        return $this->render('Pages/social_media.html.twig');
     }
 
     #[Route('/carte', name: 'app_map')]
@@ -64,7 +64,7 @@ class PagesController extends AbstractController
     {
         $map = $entityManager->getRepository(Map::class)->findAll();
 
-        return $this->render('pages/map.html.twig', [
+        return $this->render('Pages/map.html.twig', [
             'map' => $map
         ]);
     }
@@ -72,18 +72,18 @@ class PagesController extends AbstractController
     #[Route('/FAQ', name: 'app_faq')]
     public function faq(): Response
     {
-        return $this->render('pages/FAQ.html.twig');
+        return $this->render('Pages/FAQ.html.twig');
     }
 
     #[Route('/mentions-legales', name: 'app_legal_notice')]
     public function legal_notice(): Response
     {
-        return $this->render('pages/mentions-legales.html.twig');
+        return $this->render('Pages/mentions-legales.html.twig');
     }
 
     #[Route('/politique_confidentialite', name: 'app_privacy_policy')]
     public function privacy_policy(): Response
     {
-        return $this->render('pages/privacy-policy.html.twig');
+        return $this->render('Pages/privacy-policy.html.twig');
     }
 }
