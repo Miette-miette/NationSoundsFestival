@@ -49,7 +49,7 @@ class PagesController extends AbstractController
     public function partner(EntityManagerInterface $entityManager): Response
     {
         return $this->render('Pages/partners.html.twig', [
-            'partner' => $entityManager->getRepository(Partner::class)->findAll()
+            'partenaires' => $entityManager->getRepository(Partner::class)->findAll()
         ]);
     }
 
