@@ -5,7 +5,7 @@ vich_uploader:
 
     mappings:
         ns_img:
-            uri_prefix: /public/images/ns_img_content
+            uri_prefix: /images/ns_img_content
             upload_destination: '%kernel.project_dir%/public/images/ns_img_content'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
@@ -14,7 +14,7 @@ vich_uploader:
             delete_on_remove: true
 
         ns_icon:
-            uri_prefix: /public/images/ns_icon
+            uri_prefix: /images/ns_icon
             upload_destination: '%kernel.project_dir%/public/images/ns_icon'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 

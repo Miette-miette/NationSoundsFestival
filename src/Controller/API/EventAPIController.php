@@ -17,7 +17,6 @@ class EventAPIController extends AbstractController
    #[Route('/api/event', name: 'api_event', methods: ['GET'])]
     public function api(SerializerInterface $serializer, EntityManagerInterface $entityManager): Response
     {
-
         $event = $entityManager->getRepository(Event::class)->findAll();
 
         return new JsonResponse(

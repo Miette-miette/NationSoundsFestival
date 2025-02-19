@@ -28,24 +28,35 @@ final class SecurityController extends AbstractController
     public function index(AuthenticationUtils $authenticationUtils, #[CurrentUser] ?User $user,Request $request): Response
     {
         // if user is already logged in, don't display the login page again
-        // if admin => display the dashboard admin
+        // if editor => display the dashboard admin
         if ($user) {
-            if ($user->getRoles() == 'ROLE_ADMIN'){
+            if ($user->getRoles() == 'ROLE_EDITOR'){
+
+                $cookie = Cookie::create('user')
+                    ->withValue('log')
+                    ->withHttpOnly(false);
+
+                    $response = new Response();
+                    $response->headers->setCookie($cookie);
+
+                    $response->send();
+
                 return $this->redirectToRoute('admin_index');
             }
             else{
+
+                $cookie = Cookie::create('user')
+                ->withValue('log')
+                ->withHttpOnly(false);
+
+                $response = new Response();
+                $response->headers->setCookie($cookie);
+
+                $response->send();
+
                 return $this->redirectToRoute('app_dashboard_user', ['id' => $user->getId()]);
-            }   
+            }
         }
-
-        $cookie = Cookie::create('user')
-        ->withValue('log')
-        ->withHttpOnly(false);
-
-        $response = new Response();
-        $response->headers->setCookie($cookie);
-
-        $response->send();
 
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
@@ -55,7 +66,7 @@ final class SecurityController extends AbstractController
              'error' => $error,
         ]);
     }
-    
+
     #[Route('/deconnexion', name: 'app_security_logout')]
     public function logout(){
         return $this->redirect($this->generateUrl('http://localhost:8000/'));
@@ -69,10 +80,10 @@ final class SecurityController extends AbstractController
 
         $form = $this->createForm(RegistrationType::class, $user);
         //$errors = $form->getErrors();
-        
+
 
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted()&& $form->isValid())
         {
             $userData = $form->getData();
@@ -80,7 +91,7 @@ final class SecurityController extends AbstractController
                 $user,
                 'password'
             );
-            $user->setPassword($hashPassword);  
+            $user->setPassword($hashPassword);
             $entityManager->persist($userData);
             $entityManager->flush();
 
@@ -91,7 +102,7 @@ final class SecurityController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
-       
+
 
         return $this->render('security/registration.html.twig', [
             'form' => $form->createView()
