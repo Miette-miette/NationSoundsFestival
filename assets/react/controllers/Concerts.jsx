@@ -74,11 +74,12 @@ function Concerts(){
                             {
                                 return (
                                     <div className="concertItem" key={euphorie.name}>
-
+                                        <img className="src" src={'../../images/ns_img_content/'+ euphorie.img} width="100px" height="100px"/>
+                                        <div>
                                             <h3 className="title d-flex justify-content-start" >{euphorie.name}</h3>
                                             <p className="date">{euphorie.begin_datetime}</p>
                                             <p className="heure">{euphorie.begin_datetime}</p>
-
+                                        </div>
                                     </div>
                                 )
                             }
@@ -102,7 +103,7 @@ function Concerts(){
                             {
                                 return (
                                     <div className="concertItem" key={fusion.name}>
-                                        <img className="src" src={fusion.imageName} width="100px" height="100px"/>
+                                        <img className="src" src={'../../images/ns_img_content/'+ fusion.img} width="100px" height="100px"/>
                                         <div>
                                             <h3 className="title d-flex justify-content-start" >{fusion.name}</h3>
                                             <p className="date">{fusion.begin_datetime}</p>
@@ -131,7 +132,7 @@ function Concerts(){
                             {
                                 return (
                                     <div className="concertItem" key={reverie.name}>
-                                        <img className="src" src={reverie.imageName} width="100px" height="100px"/>
+                                        <img className="src" src={'../../images/ns_img_content/'+ reverie.img} width="100px" height="100px"/>
                                         <div>
                                             <h3 className="title d-flex justify-content-start" >{reverie.name}</h3>
                                             <p className="date">{reverie.begin_datetime}</p>
@@ -160,7 +161,7 @@ function Concerts(){
                             {
                                 return (
                                     <div className="concertItem" key={resonance.name}>
-                                        <img className="src" src={resonance.imageName} width="100px" height="100px"/>
+                                        <img className="src" src={'../../images/ns_img_content/'+ resonance.img} width="100px" height="100px"/>
                                         <div>
                                             <h3 className="title d-flex justify-content-start" >{resonance.name}</h3>
                                             <p className="date">{resonance.begin_datetime}</p>
@@ -190,7 +191,7 @@ function Concerts(){
                             {
                                 return (
                                     <div className="concertItem" key={prisme.name}>
-                                        <img className="src" src={prisme.imageName} width="100px" height="100px"/>
+                                        <img className="src" src={'../../images/ns_img_content/'+ prisme.img} width="100px" height="100px"/>
                                         <div>
                                             <h3 className="title d-flex justify-content-start" >{prisme.name}</h3>
                                             <p className="date">{prisme.begin_datetime}</p>

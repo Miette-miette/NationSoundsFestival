@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext,createContext} from "react";
+import '../../styles/event.css';
 import axios from "axios";
 
 
@@ -6,26 +7,12 @@ const FilterContext = createContext();
 function Programmation(){
     const [programmation, setProgrammation]= useState([])
 
-    const iconScene ={
-        "Euphorie":"../../media/scene/euphorie.png",
-        "Fusion":"../../media/scene/fusion.png",
-        "Reverie":"../../media/scene/fusion.png",
-        "Patio":"../../media/scene/le patio.png",
-        "Prisme":"../../media/scene/prisme.png",
-        "Resonance":"../../media/scene/resonance.png",
-    }
-
     useEffect(() => {
         axios.get("https://127.0.0.1:8000/index.php/api/event")
         .then((res) => setProgrammation(res.data))
     },[])
 
-
-    const concert = programmation[0];
-    const performance = programmation[1];
-
-    const event = concert.concat(performance);
-    console.log(event);
+    console.log(programmation);
 
     //FILTRES
 
@@ -43,18 +30,14 @@ function Programmation(){
             [name]: value,
         }))}
 
-    console.log(filters);
-
-
     const filteredProg = programmation.filter((prog) => {
 
-            return((filters.jour == 'Tous' || prog.begin_datetime.includes(filters.jour)) && (filters.lieu == 'Tous' || prog.location.name.includes(filters.lieu)))
+            return((filters.jour == 'Tous' || prog.begin_datetime.includes(filters.jour)) &&
+                    (filters.lieu == 'Tous' || prog.location.name.includes(filters.lieu)) &&
+                    (filters.type == 'Tous' || prog.type.includes(filters.type))
+            )
         })
     ;
-
-    console.log(filteredProg);
-
-
 
     return(
         <main id="main">
@@ -127,9 +110,9 @@ function Programmation(){
                 {
                     filteredProg.map((prog)=> (
 
-                            <div className="progItem d-flex flex-column" id="%id%" style={{backgroundImage: `url(${prog.name})`}}>
-                                <div className="conteneurImg d-flex flex-row justify-content-end align-items-start">
-                                    <img className="iconScene d-flex justify-content-end align-items-end" src="%iconS%"/>
+                            <div className="progItem d-flex flex-column justify-content-between" id="%id%" style={{backgroundImage: `url(${'../../images/ns_img_content/'+ prog.img})`}}>
+                                <div class="conteneurImg d-flex flex-row justify-content-end align-items-start">
+                                    <img class="iconScene d-flex justify-content-end align-items-end" src={'../../images/ns_icon/'+ prog.location.img}/>
                                 </div>
 
                                 <div className="progTxt">

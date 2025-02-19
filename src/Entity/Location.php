@@ -48,7 +48,7 @@ class Location
     #[Vich\UploadableField(mapping: 'ns_icon', fileNameProperty: 'imageName' )]
     private ?File $imageFile = null;
 
-    #[Groups(['api'])]
+    #[Groups(['api','api_event'])]
     #[ORM\Column(type: "string", nullable: true)]
     #[MaxDepth(1)]
     private ?string $img = null;
@@ -165,6 +165,18 @@ class Location
     public function getImageName(): ?string
     {
         return $this->img;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(?string $img): static
+    {
+        $this->img = $img;
+
+        return $this;
     }
 
     /**

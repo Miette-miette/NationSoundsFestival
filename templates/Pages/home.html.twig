@@ -39,7 +39,7 @@
                 {% for concerts in concert %}
 
                     <div class="carouselCard" >
-                        <img class="imgCarousel" src={{ vich_uploader_asset( concerts, 'imageFile')}}/>
+                        <img class="imgCarousel" src="{{ vich_uploader_asset( concerts, 'imageFile')}}"/>
                         <div class="infoCard">
                             <h3 class="title">{{concerts.name}}</h3>
                             <p class="scene">{{concerts.location}}</p>

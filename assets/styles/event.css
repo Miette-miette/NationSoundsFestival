@@ -1,0 +1,92 @@
+#mainProg {
+    padding: 5% 10%;
+}
+
+#progHeader>div>img{
+    margin: 20px;
+    animation: logoRotation  35s linear 0s infinite normal forwards;
+}
+
+.filtreConteneur {
+    display: flex;
+    width: 240px;
+}
+
+.progBtn{
+    margin-top: 2%;
+    width: 700px;
+    background-color: beige;
+    padding: 10px 15px 10px 15px;
+    border-style: solid;
+    border-color: #492E34;
+    border-radius: 15px;
+    margin: 1%;
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));
+}
+
+
+
+.iconScene {
+    width: 60px;
+    margin: 3%;
+    animation: beats 0.6s ease-out 0s infinite normal forwards;
+}
+
+#heure{
+    background-color: #E47161;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 8px;
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+    color: beige;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+#filtreTemporel, #filtreAutre {
+    width: 50%;
+}
+
+.progItem{
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 320px;
+    justify-content: end;
+    background-color:#8f505e;
+    border-style: solid;
+    border-color: #492E34;
+    margin: 1%;
+    border-radius: 8px;
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 2px rgb(136, 108, 72));
+}
+
+.progItem>div>h3,.progItem>div>p{
+    color: beige;
+    margin: 0;
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.progItem>div>h3 {
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    font-style: larger;
+    font-size: 34px;
+    text-align: left;
+}
+
+.progTxt{
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.6278886554621849) 49%, rgba(255,255,255,0) 100%);
+    padding: 20px;
+}
+
+.date{
+    color: #E47161!important;
+    font-weight: bold;
+}
