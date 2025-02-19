@@ -101,8 +101,12 @@ a{
     text-decoration: none;
 }
 
-a:hover{
+a:hover, .link:hover{
     color:#492E34;
+}
+
+.link{
+    color:#E47161;
 }
 
 .title{
@@ -130,6 +134,10 @@ button:hover, .button-style:hover{
 
 .active{
     background-color:#8f505e;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 10px ;
 }
 
 .navbar{

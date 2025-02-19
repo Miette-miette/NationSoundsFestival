@@ -16,10 +16,14 @@
                 {{form_row(form.lastName)}}
                 {{form_row(form.email)}}
                 {{form_row(form.password)}}
-                <div class="d-flex flex-row">
-                    {{form_row(form.privacy)}}
+
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-row justify-content-center align-items-center">
+                        {{form_widget(form.privacy)}}
+                        {{form_label(form.privacy)}}
+                    </div>
                     <span>
-                        <a href="/politique_confidentialite"><p>Politique de confidentialité<p></a>
+                        <a href="/politique_confidentialite"><p class="link">Politique de confidentialité<p></a>
                     </span>
                 </div>
 
