@@ -47,6 +47,7 @@ final class SecurityController extends AbstractController
 
                 $cookie = Cookie::create('user')
                 ->withValue('log')
+                ->withExpires(0)
                 ->withHttpOnly(false);
 
                 $response = new Response();
@@ -68,7 +69,12 @@ final class SecurityController extends AbstractController
     }
 
     #[Route('/deconnexion', name: 'app_security_logout')]
-    public function logout(){
+    public function logout(): Response
+    {
+        $response = new Response();
+        $response->headers->clearCookie('user');
+        $response->send();
+
         return $this->redirect($this->generateUrl('http://localhost:8000/'));
     }
 

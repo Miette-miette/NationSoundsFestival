@@ -40,10 +40,16 @@ function Navbar() {
     if (cookieValue !== undefined){
 
     return(
+      <div>
 
         <a href="/connexion">
           <button className="dashboardBtn">Acceder à mon espace</button>
         </a>
+        <a href="/deconnexion">
+          <button className="dashboardBtn">Se déconnecter</button>
+        </a>
+
+      </div>
 
       )
     }
