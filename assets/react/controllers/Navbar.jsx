@@ -54,7 +54,7 @@ function Navbar() {
 
       <div className="navbar-header">
         <div>
-          <a href='https://127.0.0.1:8000/' >
+          <a href='/' >
             <img src='../../media/logoNS/logo.png' alt="logo" id="logo"/>
           </a>
         </div>
